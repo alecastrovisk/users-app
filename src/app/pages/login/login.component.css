@@ -39,17 +39,15 @@
     color: #808080;
 }
 
-::ng-deep .login-form {
+.login-form {
     display: flex;
     flex-direction: column;
-    flex: 1;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
+    width: 50%;
 }
 
 .input {
     width: 100%;
+
 }
 
 .button {
