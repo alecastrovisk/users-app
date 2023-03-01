@@ -19,4 +19,9 @@ export class LoginComponent {
 
    return this.email.hasError('email') ? 'O email não é válido' : '';
   }
+
+  submit() {
+    console.log(this.email.value);
+    console.log(this.password.value)
+  }
 }

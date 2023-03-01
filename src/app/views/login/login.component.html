@@ -6,11 +6,11 @@
         </mat-card-header>
 
         <mat-card-content class="mat-form-container">
-            <mat-form-field appearance="fill">
+            <mat-form-field>
                 <mat-label>Email</mat-label>
                 <input 
-                    matInput 
                     class="input" 
+                    matInput
                     placeholder="Email"  
                     type="email"
                     [formControl]="email"
@@ -19,19 +19,19 @@
                 <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
             </mat-form-field>
   
-            <mat-form-field appearance="fill" [formControl]="password">
+            <mat-form-field>
                 <mat-label>Senha</mat-label>
                 <input 
                     class="input" 
+                    matInput
                     type="password" 
-                    placeholder="Senha"    
+                    placeholder="Senha"
+                    [formControl]="password"    
                 >
             </mat-form-field>
         </mat-card-content>
 
-
-
-        <button (click)="getErrorMessage()" class="button">Entrar</button>
+        <button (click)="submit()" class="button">Entrar</button>
 
         <p class="create-account">Ou crie sua conta clicando <a href=""><span class="link">aqui</span></a></p>
     </mat-card>

@@ -28,7 +28,8 @@ import { HomeComponent } from './views/home/home.component';
     MatCardModule,
     ReactiveFormsModule,
     MatIconModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
