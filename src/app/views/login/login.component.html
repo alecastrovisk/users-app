@@ -1,21 +1,38 @@
 <div class="login-container">
-    <div class="card">
-        <h1 class="login-title">Bem vindos ao <span class="span">Login</span></h1>
-        <p class="subtitle">Preencha todos os dados para acessar</p>
+    <mat-card class="card">
+        <mat-card-header class="header">
+            <mat-card-title class="login-title">Bem vindos ao <span class="span">Login</span></mat-card-title>
+            <mat-card-subtitle class="subtitle">Preencha todos os dados para acessar</mat-card-subtitle>
+        </mat-card-header>
 
-        <div class="login-form">
-            <mat-form-field class="mat-form" appearance="fill">
-                <mat-label class="label">Email</mat-label>
-                <input class="input" type="email" placeholder="Email">
-                <br>
-                <mat-label>Senha</mat-label>
-                <input class="input" type="password" placeholder="Senha">
+        <mat-card-content class="mat-form-container">
+            <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input 
+                    matInput 
+                    class="input" 
+                    placeholder="Email"  
+                    type="email"
+                    [formControl]="email"
+                    required
+                >
+                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
             </mat-form-field>
-            <br>
-        </div>
+  
+            <mat-form-field appearance="fill" [formControl]="password">
+                <mat-label>Senha</mat-label>
+                <input 
+                    class="input" 
+                    type="password" 
+                    placeholder="Senha"    
+                >
+            </mat-form-field>
+        </mat-card-content>
 
-        <button class="button">Entrar</button>
+
+
+        <button (click)="getErrorMessage()" class="button">Entrar</button>
 
         <p class="create-account">Ou crie sua conta clicando <a href=""><span class="link">aqui</span></a></p>
-    </div>
+    </mat-card>
 </div>
