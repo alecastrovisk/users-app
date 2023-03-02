@@ -56,7 +56,6 @@
 .input {
     padding: 9px;
     margin-top: 1rem;
-    background-color: white;
 }
 
  ::ng-deep .mat-mdc-form-field-infix {
@@ -78,6 +77,10 @@
 
     color: white;
     background-color: #0078F0;
+}
+
+span {
+    font-weight: bold;
 }
 
 .button:hover {
