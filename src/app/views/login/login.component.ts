@@ -10,9 +10,7 @@ import { User } from './User';
 })
 export class LoginComponent {
   
-  constructor(private authService: AuthService) {
-
-  }
+  constructor(private authService: AuthService) {}
 
   email =  new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required]);
@@ -23,11 +21,6 @@ export class LoginComponent {
    } 
 
    return this.email.hasError('email') ? 'O email não é válido' : '';
-  }
-
-  submit() {
-    console.log(this.email.value);
-    console.log(this.password.value)
   }
 
   login() {

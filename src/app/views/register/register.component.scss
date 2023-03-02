@@ -11,10 +11,10 @@
     flex-direction: column;
 
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
 
     width: 33rem;
-    height: 30rem;
+    height: 35rem;
 
     border-radius: 10px;
     background-color: white;
@@ -23,24 +23,15 @@
 }
 
 .header {
-    margin-top: 0;
+    margin-top: 6rem;
     padding-top: 0;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .login-title {
     font-size: 24px;
     font-weight: 400;
     line-height: 29px;
-}
-
-.span {
-    color: #0078F0;
-}
-
-.subtitle {
-    font-size: 14px;
-    color: #808080;
 }
 
 .mat-form-container {
@@ -50,7 +41,6 @@
     align-items: center;
 
     width: 100%;
-    gap: 1.5rem;
 }
 
 .input {
@@ -58,7 +48,7 @@
     margin-top: 1rem;
 }
 
- ::ng-deep .mat-mdc-form-field-infix {
+::ng-deep .mat-mdc-form-field-infix {
     width: 100% !important;
     padding: 0 !important;
 }
@@ -88,7 +78,6 @@ span {
 }
 
 .create-account {
-    margin-top: 1rem;
     font-size: 14px;
 }
 

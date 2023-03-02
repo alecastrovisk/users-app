@@ -1,0 +1,33 @@
+<div class="login-container">
+    <mat-card class="card">
+        <mat-card-header class="header">
+            <mat-card-title class="login-title">Crie sua conta</mat-card-title>
+        </mat-card-header>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <mat-card-content class="mat-form-container">
+                <mat-form-field appearance="outline">
+                    <mat-label>Nome</mat-label>
+                    <input class="input" matInput placeholder="Nome" type="text" [formControl]="name" required>
+                    <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input class="input" matInput placeholder="Email" type="email" [formControl]="email" required>
+                    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Senha</mat-label>
+                    <input class="input" matInput placeholder="Senha" type="password">
+                </mat-form-field>
+
+                <button class="button"><span>Cadastrar</span></button>
+            </mat-card-content>
+        </form>
+
+        <p class="create-account">Já tem uma conta? Faça seu login
+            <a routerLink="../login"><span class="link">aqui</span></a>
+        </p>
+    </mat-card>
+</div>

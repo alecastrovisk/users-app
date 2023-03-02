@@ -6,7 +6,7 @@
         </mat-card-header>
 
         <mat-card-content class="mat-form-container">
-            <mat-form-field>
+            <mat-form-field appearance="outline">
                 <mat-label>Email</mat-label>
                 <input 
                     class="input" 
@@ -19,7 +19,7 @@
                 <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
             </mat-form-field>
   
-            <mat-form-field>
+            <mat-form-field appearance="outline">
                 <mat-label>Senha</mat-label>
                 <input 
                     class="input" 
@@ -33,6 +33,8 @@
 
         <button (click)="login()" class="button"><span>Entrar</span></button>
 
-        <p class="create-account">Ou crie sua conta clicando <a href=""><span class="link">aqui</span></a></p>
+        <p class="create-account">Ou crie sua conta clicando 
+            <a routerLink="../register"><span class="link">aqui</span></a>
+        </p>
     </mat-card>
 </div>
