@@ -42,4 +42,8 @@ export class LoginComponent {
     error => console.log(error)
     )
   }
+
+  logout() {
+    this.authService.logout();
+  }
 }

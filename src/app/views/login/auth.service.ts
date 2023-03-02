@@ -17,8 +17,15 @@ export class AuthService {
     return this.httpClient.post<Response>('http://localhost:3000/login', { email, password })
     .pipe(map(user => {
       localStorage.setItem('userToken', JSON.stringify(user));
+
       this.router.navigate(['home']);
+
       return user;
     }));
+  }
+
+  logout() {
+    localStorage.removeItem('user');
+    this.router.navigate(['login']);
   }
 }
