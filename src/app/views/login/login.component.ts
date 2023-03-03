@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from './auth.service';
-import { UserCredentials } from './User';
+import { UserService } from '../../services/user.service';
+import { UserCredentials } from '../../models/User';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +10,7 @@ import { UserCredentials } from './User';
 })
 export class LoginComponent {
   
-  constructor(private authService: AuthService) {}
+  constructor(private userService: UserService) {}
 
   email =  new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required, Validators.minLength(6)]);
@@ -21,7 +21,7 @@ export class LoginComponent {
       password: this.password.value
     }
 
-    this.authService.login(userCredentials).subscribe(token => {
+    this.userService.login(userCredentials).subscribe(token => {
       console.log(token);
     },
     error => alert('Email ou senha inválidos!')
@@ -29,6 +29,6 @@ export class LoginComponent {
   }
 
   logout() {
-    this.authService.logout();
+    this.userService.logout();
   }
 }
