@@ -2,12 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
-import { RegisterUser, UserCredentials } from './User';
+import { RegisterUser, UserCredentials } from '../models/User';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService { 
+export class UserService { 
   constructor(
     private router: Router,
     private httpClient: HttpClient
@@ -25,7 +25,7 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.removeItem('user');
+    localStorage.removeItem('userToken');
     this.router.navigate(['login']);
   }
 

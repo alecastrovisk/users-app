@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { first } from 'rxjs';
-import { AuthService } from '../login/auth.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +16,7 @@ export class RegisterComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService,
+    private userService: UserService,
     private router: Router,
   ){}
 
@@ -38,7 +38,7 @@ export class RegisterComponent {
       return;
     }
 
-    this.authService.register(this.form.value)
+    this.userService.register(this.form.value)
       .pipe(first())
       .subscribe({
         next: () => {

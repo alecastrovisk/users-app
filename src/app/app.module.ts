@@ -17,7 +17,7 @@ import { LoginComponent } from './views/login/login.component';
 import { HomeComponent } from './views/home/home.component';
 import { RegisterComponent } from './views/register/register.component';
 
-import { AuthService } from './views/login/auth.service';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,7 @@ import { AuthService } from './views/login/auth.service';
     HttpClientModule,
     MatButtonModule
   ],
-  providers: [AuthService],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
