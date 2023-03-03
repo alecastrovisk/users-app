@@ -8,13 +8,13 @@
                 <mat-form-field appearance="outline">
                     <mat-label>Nome</mat-label>
                     <input class="input" matInput placeholder="Nome" type="text" [formControl]="name" required>
-                    <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>
+                    <!-- <mat-error *ngIf="=form.controls.error.required">{{getErrorMessage()}}</mat-error> -->
                 </mat-form-field>
 
                 <mat-form-field appearance="outline">
                     <mat-label>Email</mat-label>
                     <input class="input" matInput placeholder="Email" type="email" [formControl]="email" required>
-                    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                    <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
                 </mat-form-field>
 
                 <mat-form-field appearance="outline">
