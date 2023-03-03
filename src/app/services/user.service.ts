@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { map, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 import { RegisterUser, UserCredentials } from '../models/User';
 
 @Injectable({
@@ -12,6 +12,12 @@ export class UserService {
     private router: Router,
     private httpClient: HttpClient
   ) { }
+
+  public get userValue(){
+    const user =  JSON.parse(localStorage.getItem('userToken')!);
+    console.log(user);
+    return user;
+  }
 
   login({ email, password }: UserCredentials): Observable<Response> {
     return this.httpClient.post<Response>('http://localhost:3000/login', { email, password })
