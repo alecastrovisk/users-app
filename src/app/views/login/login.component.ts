@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from './auth.service';
-import { User } from './User';
+import { UserCredentials } from './User';
 
 @Component({
   selector: 'app-login',
@@ -13,18 +13,10 @@ export class LoginComponent {
   constructor(private authService: AuthService) {}
 
   email =  new FormControl('', [Validators.required, Validators.email]);
-  password = new FormControl('', [Validators.required]);
-
-  getErrorMessage() {
-   if(this.email.hasError('required')) {
-    return 'Você deve preencher um valor';
-   } 
-
-   return this.email.hasError('email') ? 'O email não é válido' : '';
-  }
+  password = new FormControl('', [Validators.required, Validators.minLength(6)]);
 
   login() {
-    const userCredentials: User = {
+    const userCredentials: UserCredentials = {
       email: this.email.value,
       password: this.password.value
     }
@@ -32,7 +24,7 @@ export class LoginComponent {
     this.authService.login(userCredentials).subscribe(token => {
       console.log(token);
     },
-    error => console.log(error)
+    error => alert('Email ou senha inválidos!')
     )
   }
 

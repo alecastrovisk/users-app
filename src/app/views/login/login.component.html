@@ -16,7 +16,7 @@
                     [formControl]="email"
                     required
                 >
-                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                <mat-error *ngIf="email.invalid">Email inválido</mat-error>
             </mat-form-field>
   
             <mat-form-field appearance="outline">
@@ -28,6 +28,7 @@
                     placeholder="Senha"
                     [formControl]="password"    
                 >
+                <mat-error *ngIf="password.errors!.required">Digite uma senha</mat-error>
             </mat-form-field>
         </mat-card-content>
 
