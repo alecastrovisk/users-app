@@ -29,7 +29,8 @@ export class AuthService {
     this.router.navigate(['login']);
   }
 
-  register(data: RegisterUser) {
-    return this.httpClient.post<Response>('http://localhost:3000/user', { data });
+  register({ name, email, password }: RegisterUser) {
+    console.log('register function called');
+    return this.httpClient.post<Response>('http://localhost:3000/user', { name, email, password });
   }
 }
