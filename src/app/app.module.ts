@@ -11,6 +11,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar'
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
@@ -18,6 +20,7 @@ import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 
 import { UserService } from './services/user.service';
+import { GraphQLModule } from './graphql.module';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { UserService } from './services/user.service';
     MatFormFieldModule,
     MatInputModule,
     HttpClientModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule,
+    MatToolbarModule,
+    GraphQLModule
   ],
   providers: [
     UserService,
