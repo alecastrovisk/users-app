@@ -28,13 +28,12 @@ export class RegisterComponent {
     });
   }
 
-  get f() { return this.form.controls; };
+  get f() { return this.form.controls};
 
   onSubmit() {
     this.submitted = true;
 
     if(this.form.invalid) {
-      console.log('estou entrando no erro', this.form.value);
       return;
     }
 
@@ -42,7 +41,7 @@ export class RegisterComponent {
       .pipe(first())
       .subscribe({
         next: () => {
-          this.router.navigate(['../login']);
+          this.router.navigate(['../home']);
         },
         error: error => {
           alert(error.message);

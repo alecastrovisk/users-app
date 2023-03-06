@@ -30,7 +30,7 @@
                         required
                     >
                     <mat-error *ngIf="submitted && f.email.errors">Email é obrigatório</mat-error>
-                    <mat-error *ngIf="f.email.errors!.email">Email inválido</mat-error>
+                    <mat-error *ngIf="submitted && f.email.errors.email">Email inválido</mat-error>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline">
@@ -41,10 +41,14 @@
                         placeholder="Senha" 
                         type="password" 
                         formControlName="password" 
-                        required
                     >
-                    <mat-error *ngIf="submitted && f.password.errors">Senha é obrigatória</mat-error>
-                    <!-- <mat-error *ngIf="f.password.errors!.minLength">Senha tem que ter no mínimo 6 dígitos</mat-error> -->
+                        <mat-error *ngIf="submitted && f.password.errors.minlength">
+                            A Senha deve ter no mínimo 6 dígitos
+                        </mat-error>
+
+                        <mat-error *ngIf="submitted && f.password.errors.required">
+                            Senha é obrigatória
+                        </mat-error>
                 </mat-form-field>
 
                 <button class="button"><span>Cadastrar</span></button>

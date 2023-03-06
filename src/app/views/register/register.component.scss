@@ -44,7 +44,15 @@
 
     width: 100%;
 }
+mat-form-field {
+    mat-error {
+        display: none !important;
+    }
 
+    mat-error:first-child {
+        display: block !important;
+    }
+}
 .input {
     padding: 9px;
     margin-top: 1rem;

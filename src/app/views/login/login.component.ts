@@ -24,7 +24,13 @@ export class LoginComponent {
     this.userService.login(userCredentials).subscribe(token => {
       console.log(token);
     },
-    error => alert('Email ou senha inválidos!')
+    error => { 
+      if(error.statusText === 'Unknown Error') {
+        alert('erro no servidor, tente novamente mais tarde');
+      } else {
+        console.log(error.message);
+      }
+    }
     )
   }
 

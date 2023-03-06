@@ -19,10 +19,8 @@ export class AuthGuard implements CanActivate {
     const user = this.userService.userValue;
     console.log('aqui o que veio de user:', user);
     if(user) {
-      console.log('passei no guard');
       return true;
     } else {
-      console.log(' não passei no guard');
       this.router.navigate(['/login']);
       return false;
     }  
