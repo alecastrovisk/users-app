@@ -18,7 +18,6 @@ import { HomeComponent } from './views/home/home.component';
 import { RegisterComponent } from './views/register/register.component';
 
 import { UserService } from './services/user.service';
-import { ErrorInterceptor } from './helpers/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -42,7 +41,6 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
   ],
   providers: [
     UserService,
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor}
   ],
   bootstrap: [AppComponent]
 })
