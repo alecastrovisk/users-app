@@ -41,6 +41,7 @@ export class RegisterComponent {
       .pipe(first())
       .subscribe({
         next: () => {
+          alert('Usuário criado com sucesso!');
           this.router.navigate(['../home']);
         },
         error: error => {

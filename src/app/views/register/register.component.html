@@ -9,13 +9,13 @@
         <mat-form-field appearance="outline">
           <mat-label>Nome</mat-label>
           <input class="input" matInput placeholder="Nome" type="text" formControlName="name" required>
-          <mat-error *ngIf="submitted && f.name.errors">Nome é obrigatório</mat-error>
+          <mat-error *ngIf="submitted && f.name.errors.required">Nome é obrigatório</mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>Email</mat-label>
           <input class="input" matInput placeholder="Email" type="email" formControlName="email" required>
-          <mat-error *ngIf="submitted && f.email.errors">Email é obrigatório</mat-error>
+          <mat-error *ngIf="submitted && f.email.errors.required">Email é obrigatório</mat-error>
           <mat-error *ngIf="submitted && f.email.errors.email">Email inválido</mat-error>
         </mat-form-field>
 

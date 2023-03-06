@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
-import { RegisterUser, UserCredentials } from '../models/User';
+import { RegisterUser, User, UserCredentials } from '../models/User';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,8 @@ import { RegisterUser, UserCredentials } from '../models/User';
 export class UserService {
   constructor(
     private router: Router,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+
   ) { }
 
   public get userValue() {
@@ -39,4 +40,6 @@ export class UserService {
     console.log('register function called');
     return this.httpClient.post<Response>('http://localhost:3000/user', { name, email, password });
   }
+
+  getAllUsers() { }
 }
