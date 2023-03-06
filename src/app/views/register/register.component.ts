@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { first } from 'rxjs';
 import { UserService } from '../../services/user.service';
@@ -18,7 +18,7 @@ export class RegisterComponent {
     private formBuilder: FormBuilder,
     private userService: UserService,
     private router: Router,
-  ){}
+  ) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -28,12 +28,12 @@ export class RegisterComponent {
     });
   }
 
-  get f() { return this.form.controls};
+  get f() { return this.form.controls };
 
   onSubmit() {
     this.submitted = true;
 
-    if(this.form.invalid) {
+    if (this.form.invalid) {
       return;
     }
 
@@ -53,6 +53,6 @@ export class RegisterComponent {
   onReset() {
     this.submitted = false;
     this.form.reset();
-}
+  }
 
 }

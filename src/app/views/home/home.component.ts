@@ -7,9 +7,9 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  constructor(private UserService: UserService) {}
+  constructor(private UserService: UserService) { }
 
-  logout(){
+  logout() {
     this.UserService.logout()
   }
 }

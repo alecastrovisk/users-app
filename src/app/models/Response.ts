@@ -1,3 +1,3 @@
 export interface Response {
-    jwt: string;
+  jwt: string;
 }

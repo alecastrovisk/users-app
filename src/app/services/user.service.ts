@@ -1,33 +1,33 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, map, Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { RegisterUser, UserCredentials } from '../models/User';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService { 
+export class UserService {
   constructor(
     private router: Router,
     private httpClient: HttpClient
   ) { }
 
-  public get userValue(){
-    const user =  JSON.parse(localStorage.getItem('userToken')!);
+  public get userValue() {
+    const user = JSON.parse(localStorage.getItem('userToken')!);
     console.log(user);
     return user;
   }
 
   login({ email, password }: UserCredentials): Observable<Response> {
     return this.httpClient.post<Response>('http://localhost:3000/login', { email, password })
-    .pipe(map(user => {
-      localStorage.setItem('userToken', JSON.stringify(user));
+      .pipe(map(user => {
+        localStorage.setItem('userToken', JSON.stringify(user));
 
-      this.router.navigate(['home']);
+        this.router.navigate(['home']);
 
-      return user;
-    }));
+        return user;
+      }));
   }
 
   logout() {
