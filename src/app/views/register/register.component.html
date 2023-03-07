@@ -1,0 +1,42 @@
+<div class="login-container">
+  <mat-card class="card">
+    <mat-card-header class="header">
+      <mat-card-title class="login-title">Crie sua conta</mat-card-title>
+    </mat-card-header>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-card-content class="mat-form-container">
+        <mat-form-field appearance="outline">
+          <mat-label>Nome</mat-label>
+          <input class="input" matInput placeholder="Nome" type="text" formControlName="name" required>
+          <mat-error *ngIf="submitted && f.name.errors.required">Nome é obrigatório</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input class="input" matInput placeholder="Email" type="email" formControlName="email" required>
+          <mat-error *ngIf="submitted && f.email.errors.required">Email é obrigatório</mat-error>
+          <mat-error *ngIf="submitted && f.email.errors.email">Email inválido</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Senha</mat-label>
+          <input class="input" matInput placeholder="Senha" type="password" formControlName="password">
+          <mat-error *ngIf="submitted && f.password.errors.minlength">
+            A Senha deve ter no mínimo 6 dígitos
+          </mat-error>
+
+          <mat-error *ngIf="submitted && f.password.errors.required">
+            Senha é obrigatória
+          </mat-error>
+        </mat-form-field>
+
+        <button class="button"><span>Cadastrar</span></button>
+      </mat-card-content>
+    </form>
+
+    <p class="create-account">Já tem uma conta? Faça seu login
+      <a routerLink="../login"><span class="link">aqui</span></a>
+    </p>
+  </mat-card>
+</div>
