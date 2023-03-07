@@ -15,14 +15,14 @@ export function createApollo(httpLink: HttpLink) {
   }));
 
   const auth = setContext((operation, context) => {
-    const token = localStorage.getItem('token');
+    const token = JSON.parse(localStorage.getItem('userToken'));
 
     if (token === null) {
       return {};
     } else {
       return {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${token['access_token']}`,
         },
       };
     }
