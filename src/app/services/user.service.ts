@@ -16,7 +16,6 @@ export class UserService {
 
   public get userValue() {
     const user = JSON.parse(localStorage.getItem('userToken')!);
-    console.log(user);
     return user;
   }
 
@@ -37,7 +36,6 @@ export class UserService {
   }
 
   register({ name, email, password }: RegisterUser) {
-    console.log('register function called');
     return this.httpClient.post<Response>('http://localhost:3000/user', { name, email, password });
   }
 

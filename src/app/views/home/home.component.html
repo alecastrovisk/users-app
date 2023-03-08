@@ -8,5 +8,25 @@
       </button>
     </mat-toolbar-row>
   </mat-toolbar>
+</div>
+<div class="content">
+  <table class="table">
+    <tr>
+      <th>Id</th>
+      <th>Nome</th>
+      <th>email</th>
+      <th></th>
+    </tr>
 
+    <tr *ngFor="let user of users">
+      <td>{{user.id}}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.email}}</td>
+      <td>
+        <button mat-icon-button>
+          <mat-icon class="delete-icon">delete</mat-icon>
+        </button>
+      </td>
+    </tr>
+  </table>
 </div>
