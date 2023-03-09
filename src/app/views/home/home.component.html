@@ -12,10 +12,10 @@
 <div class="content">
   <table class="table">
     <tr>
-      <th>Id</th>
+      <th class="first-th">Id</th>
       <th>Nome</th>
-      <th>email</th>
-      <th></th>
+      <th>Email</th>
+      <th class="last-th"></th>
     </tr>
 
     <tr *ngFor="let user of users">
@@ -23,8 +23,11 @@
       <td>{{user.name}}</td>
       <td>{{user.email}}</td>
       <td>
+        <button mat-icon-button class="button">
+          <mat-icon>edit</mat-icon>
+        </button>
         <button mat-icon-button>
-          <mat-icon class="delete-icon">delete</mat-icon>
+          <mat-icon>delete</mat-icon>
         </button>
       </td>
     </tr>
