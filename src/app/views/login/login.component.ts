@@ -27,6 +27,8 @@ export class LoginComponent {
       error => {
         if (error.statusText === 'Unknown Error') {
           alert('erro no servidor, tente novamente mais tarde');
+        } if (error.statusText === 'Unauthorized') {
+          alert('Email ou senha inválidos!');
         } else {
           console.log(error.message);
         }
