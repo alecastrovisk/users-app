@@ -8,43 +8,42 @@ import { setContext } from '@apollo/client/link/context';
 const uri = 'http://localhost:3000/graphql';
 
 export function createApollo(httpLink: HttpLink) {
-  const basic = setContext((operation, context) => ({
-    headers: {
-      Accept: 'charset=utf-8',
-    },
-  }));
-
-  const auth = setContext((operation, context) => {
-    const token = JSON.parse(localStorage.getItem('userToken'));
-    console.log(token);
-    if (token === null) {
-      return {};
-    } else {
-      return {
+    const basic = setContext((operation, context) => ({
         headers: {
-          Authorization: `Bearer ${token['access_token']}`,
+            Accept: 'charset=utf-8',
         },
-      };
-    }
-  });
+    }));
 
-  const link = ApolloLink.from([basic, auth, httpLink.create({ uri })]);
-  const cache = new InMemoryCache();
+    const auth = setContext((operation, context) => {
+        const token = JSON.parse(localStorage.getItem('userToken'));
+        if (token === null) {
+            return {};
+        } else {
+            return {
+                headers: {
+                    Authorization: `Bearer ${token['access_token']}`,
+                },
+            };
+        }
+    });
 
-  return {
-    link,
-    cache,
-  };
+    const link = ApolloLink.from([basic, auth, httpLink.create({ uri })]);
+    const cache = new InMemoryCache();
+
+    return {
+        link,
+        cache,
+    };
 }
 
 @NgModule({
-  exports: [HttpClientModule, ApolloModule],
-  providers: [
-    {
-      provide: APOLLO_OPTIONS,
-      useFactory: createApollo,
-      deps: [HttpLink],
-    },
-  ],
+    exports: [HttpClientModule, ApolloModule],
+    providers: [
+        {
+            provide: APOLLO_OPTIONS,
+            useFactory: createApollo,
+            deps: [HttpLink],
+        },
+    ],
 })
 export class GraphQLModule { }

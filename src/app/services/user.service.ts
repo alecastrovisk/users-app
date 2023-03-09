@@ -11,11 +11,11 @@ export class UserService {
   constructor(
     private router: Router,
     private httpClient: HttpClient,
-
   ) { }
 
   public get userValue() {
     const user = JSON.parse(localStorage.getItem('userToken')!);
+    console.log('userValue:', user)
     return user;
   }
 
@@ -28,6 +28,14 @@ export class UserService {
 
         return user;
       }));
+  }
+
+  delete(id: number) {
+    console.log('Entrei no service e o id é:', id)
+    // if (id === this.userValue.user.id) {
+    //   this.logout();
+    // }}
+    return this.httpClient.delete(`http://localhost:3000/user/${id}`);
   }
 
   logout() {

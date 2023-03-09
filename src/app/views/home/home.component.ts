@@ -1,6 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
+import { Component } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import { GET_USERS } from 'src/app/graphql/graphql.queries';
 import { User } from 'src/app/models/User';
@@ -12,12 +10,9 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  constructor(private UserService: UserService, private apollo: Apollo) { }
+  constructor(private userService: UserService, private apollo: Apollo) { }
 
   users: User[] = [];
-  dataSource = this.users;
-  clickedRows = new Set<User>();
-  headerColumns: string[] = ['id', 'name', 'email'];
 
   ngOnInit(): void {
     this.apollo.watchQuery({
@@ -29,7 +24,12 @@ export class HomeComponent {
   }
 
   logout() {
-    this.UserService.logout();
+    this.userService.logout();
     alert('Usuário deslogado');
+  }
+
+  deleteUser(id: number) {
+    console.log('entrei no component e o id é:', id)
+    this.userService.delete(id);
   }
 }

@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -23,6 +23,8 @@ import { RegisterComponent } from './views/register/register.component';
 
 import { UserService } from './services/user.service';
 import { GraphQLModule } from './graphql.module';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { GraphqlInterceptor } from './helpers/graphql.interceptor';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { GraphQLModule } from './graphql.module';
   ],
   providers: [
     UserService,
+    // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    // { provide: HTTP_INTERCEPTORS, useClass: GraphqlInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
