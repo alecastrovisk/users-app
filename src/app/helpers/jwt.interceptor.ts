@@ -12,6 +12,7 @@ export class JwtInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const user = this.userService.userValue;
+    console.log('user no interceptor:', user);
     // console.log('user chegando no intercpetor', user.access_token)
     // if (request.url.indexOf('/graphql') > -1) {
     //   console.log('Entrei no if graphql');

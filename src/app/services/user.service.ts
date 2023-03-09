@@ -35,7 +35,7 @@ export class UserService {
     // if (id === this.userValue.user.id) {
     //   this.logout();
     // }}
-    return this.httpClient.delete(`http://localhost:3000/user/${id}`);
+    return this.httpClient.delete(`http://localhost:3000/user/${id}`).subscribe(data => { console.log(data) });
   }
 
   logout() {

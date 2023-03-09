@@ -53,7 +53,7 @@ import { GraphqlInterceptor } from './helpers/graphql.interceptor';
   ],
   providers: [
     UserService,
-    // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     // { provide: HTTP_INTERCEPTORS, useClass: GraphqlInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
