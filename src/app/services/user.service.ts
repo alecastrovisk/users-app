@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
-import { RegisterUser, User, UserCredentials } from '../models/User';
+import { RegisterUser, UserCredentials } from '../models/User';
 
 @Injectable({
   providedIn: 'root'
@@ -31,11 +31,12 @@ export class UserService {
   }
 
   delete(id: number) {
-    console.log('Entrei no service e o id é:', id)
-    // if (id === this.userValue.user.id) {
-    //   this.logout();
-    // }}
-    return this.httpClient.delete(`http://localhost:3000/user/${id}`).subscribe(data => { console.log(data) });
+    if (id === this.userValue.user.id) {
+      this.logout();
+    }
+    return this.httpClient.delete(`http://localhost:3000/user/${id}`).subscribe(data => {
+      alert('Usuário deletado com sucesso!');
+    });
   }
 
   logout() {
@@ -46,6 +47,4 @@ export class UserService {
   register({ name, email, password }: RegisterUser) {
     return this.httpClient.post<Response>('http://localhost:3000/user', { name, email, password });
   }
-
-  getAllUsers() { }
 }
