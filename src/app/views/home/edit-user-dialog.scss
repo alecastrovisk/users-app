@@ -1,0 +1,54 @@
+.title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.title {
+    font-size: 28px;
+}
+
+.form-container {
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+
+    gap: 1.4rem;
+
+    width: 100%;
+}
+
+::ng-deep .mat-mdc-form-field-infix {
+    width: 100% !important;
+    padding: 0 !important;
+}
+
+::ng-deep .mat-mdc-form-field-subscript-wrapper {
+    height: 0;
+}
+
+.input {
+    padding: 9px;
+    margin-top: 1rem;
+}
+
+.button {
+    width: 50%;
+
+    padding: 1rem;
+    margin-top: 1rem;
+
+    border-radius: 5px;
+    border: 0;
+
+    color: white;
+    background-color: #0078F0;
+}
+
+.button:hover {
+    background-color: #82b4e6;
+}

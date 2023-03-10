@@ -28,7 +28,7 @@ export class RegisterComponent {
     });
   }
 
-  get f() { return this.form.controls };
+  get formControls() { return this.form.controls };
 
   onSubmit() {
     this.submitted = true;
@@ -45,7 +45,8 @@ export class RegisterComponent {
           this.router.navigate(['../home']);
         },
         error: error => {
-          alert(error.message);
+          if (error.status === 409) return alert('O email já existe!');
+          alert('Não foi possível fazer o cadastro :c');
         }
       })
 
@@ -55,5 +56,4 @@ export class RegisterComponent {
     this.submitted = false;
     this.form.reset();
   }
-
 }

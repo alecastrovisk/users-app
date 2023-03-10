@@ -9,24 +9,24 @@
         <mat-form-field appearance="outline">
           <mat-label>Nome</mat-label>
           <input class="input" matInput placeholder="Nome" type="text" formControlName="name" required>
-          <mat-error *ngIf="submitted && f.name.errors.required">Nome é obrigatório</mat-error>
+          <mat-error *ngIf="submitted && formControls.name.errors.required">Nome é obrigatório</mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>Email</mat-label>
           <input class="input" matInput placeholder="Email" type="email" formControlName="email" required>
-          <mat-error *ngIf="submitted && f.email.errors.required">Email é obrigatório</mat-error>
-          <mat-error *ngIf="submitted && f.email.errors.email">Email inválido</mat-error>
+          <mat-error *ngIf="submitted && formControls.email.errors.required">Email é obrigatório</mat-error>
+          <mat-error *ngIf="submitted && formControls.email.errors.email">Email inválido</mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>Senha</mat-label>
           <input class="input" matInput placeholder="Senha" type="password" formControlName="password">
-          <mat-error *ngIf="submitted && f.password.errors.minlength">
+          <mat-error *ngIf="submitted && formControls.password.errors.minlength">
             A Senha deve ter no mínimo 6 dígitos
           </mat-error>
 
-          <mat-error *ngIf="submitted && f.password.errors.required">
+          <mat-error *ngIf="submitted && formControls.password.errors.required">
             Senha é obrigatória
           </mat-error>
         </mat-form-field>

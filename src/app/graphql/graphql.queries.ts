@@ -1,4 +1,4 @@
-import { Apollo, gql } from 'apollo-angular';
+import { gql } from 'apollo-angular';
 
 const GET_USERS = gql`
   query {

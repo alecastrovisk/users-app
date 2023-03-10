@@ -1,0 +1,22 @@
+<div class="title-container">
+  <h1 mat-dialog-title class="title">Edite sua conta</h1>
+</div>
+
+<div class="form-container" [formGroup]="form">
+  <mat-form-field appearance="outline">
+    <mat-label>Nome</mat-label>
+    <input [(ngModel)]="data.name" class="input" matInput placeholder="Nome" type="text" formControlName="name"
+      required>
+    <mat-error *ngIf="submitted && formControls.name.errors.required">Nome é obrigatório</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input [(ngModel)]="data.email" class="input" matInput placeholder="Email" type="email" formControlName="email"
+      required>
+    <mat-error *ngIf="submitted && formControls.email.errors.required">Email é obrigatório</mat-error>
+    <mat-error *ngIf="submitted && formControls.email.errors.email">Email inválido</mat-error>
+  </mat-form-field>
+
+  <button class="button" (click)="onSubmit()"><span>Salvar</span></button>
+</div>

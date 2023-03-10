@@ -1,8 +1,7 @@
-import { Injectable } from '@angular/core';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { filter, switchMap } from 'rxjs/operators';
-import { UserService } from '../services/user.service';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { UserService } from '../services/user.service';
 
 @Injectable()
 export class GraphqlInterceptor implements HttpInterceptor {

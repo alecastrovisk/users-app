@@ -23,7 +23,7 @@
       <td>{{user.name}}</td>
       <td>{{user.email}}</td>
       <td>
-        <button mat-icon-button class="button">
+        <button mat-icon-button class="button" (click)="openDialog(user.id, user.name, user.email)">
           <mat-icon>edit</mat-icon>
         </button>
         <button mat-icon-button (click)="deleteUser(user.id)">

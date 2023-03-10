@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
-import { RegisterUser, UserCredentials } from '../models/User';
+import { RegisterUser, UpdateUser, UserCredentials } from '../models/User';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +35,8 @@ export class UserService {
       this.logout();
     }
     return this.httpClient.delete(`http://localhost:3000/user/${id}`).subscribe(data => {
+      this.router.navigate(['home'], { skipLocationChange: false });
+      location.reload();
       alert('Usuário deletado com sucesso!');
     });
   }
@@ -46,5 +48,9 @@ export class UserService {
 
   register({ name, email, password }: RegisterUser) {
     return this.httpClient.post<Response>('http://localhost:3000/user', { name, email, password });
+  }
+
+  update({ id, name, email, password }: UpdateUser) {
+    return this.httpClient.put<Response>(`http://localhost:3000/user/${id}`, { name, email, password })
   }
 }
